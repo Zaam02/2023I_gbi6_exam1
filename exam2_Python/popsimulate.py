@@ -1,12 +1,14 @@
 #_________________ Función 1
-def build_population(N, p):
-    population = []
-    for i in range(N):
+import numpy as kk 
+
+def build_population(N, p):    #Definiendo la función y diciendole que tome dos parámetros N y p 
+    population = []            # Hacer una lista 
+    for i in range(N):         #Inicio un bucle for donde le doy un rango "N"
         allele1 = "A"
-        if scipy.random.rand() > p:
+        if kk.random.rand() > p:
             allele1 = "a"
         allele2 = "A"
-        if scipy.random.rand() > p:
+        if kk.random.rand() > p:
             allele2 = "a"
         population.append((allele1, allele2))
     return population
@@ -24,9 +26,9 @@ def reproduce_population(population):
     new_generation = []
     N = len(population)
     for i in range(N):
-        dad = np.random.randint(N)
-        mom = np.random.randint(N)
-        chr_mom = np.random.randint(2)
+        dad = kk.random.randint(N)
+        mom = kk.random.randint(N)
+        chr_mom = kk.random.randint(2)
         offspring = (population[mom][chr_mom], population[dad][1 - chr_mom])
         new_generation.append(offspring)
     return new_generation
